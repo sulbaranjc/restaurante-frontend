@@ -1,16 +1,30 @@
-/* App.css */
-
-body {
+html, body, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .main-content {
-  min-height: 100vh; /* Altura completa */
+  flex: 1;
+  min-height: calc(100vh - 56px); /* Ajusta si el Navbar es más alto */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrado vertical */
-  align-items: center;     /* Centrado horizontal */
-  text-align: center;      /* Centrado de texto */
-  padding-top: 56px;       /* Espacio para la navbar fija */
+  justify-content: center;
+  align-items: center;
+  padding-top: 56px; /* Para que no se solape */
+}
+.main-content h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+.main-content p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.main-content a {
+  color: #007bff;
+  text-decoration: none;
+}
+.main-content a:hover {
+  text-decoration: underline;
 }

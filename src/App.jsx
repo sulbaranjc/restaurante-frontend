@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import { Navbar, Nav } from 'react-bootstrap';
 import RutaProtegida from './components/RutaProtegida';
 import LoginForm from './components/LoginForm';
+import './App.css';
 
 function App() {
   const token = localStorage.getItem('token');
@@ -10,13 +11,13 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    alert('Sesión cerrada.');
+  //  alert('Sesión cerrada.');
     navigate('/');
   };
 
   const handleLoginSuccess = (token) => {
     localStorage.setItem('token', token);
-    alert('¡Bienvenido! Token guardado.');
+  //  alert('¡Bienvenido! Token guardado.');
     navigate('/');
   };
   
