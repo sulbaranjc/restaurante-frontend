@@ -1,0 +1,16 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  min-height: 100vh; /* Altura completa */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  text-align: center;      /* Centrado de texto */
+  padding-top: 56px;       /* Espacio para la navbar fija */
+}
