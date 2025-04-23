@@ -62,6 +62,29 @@ function Categorias() {
     }
   };
 
+  const handleEliminarCategoria = async (id) => {
+    if (!window.confirm('¿Estás seguro de eliminar esta categoría?')) return;
+  
+    try {
+      const response = await fetch(`http://localhost:8080/api/categorias/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error al eliminar la categoría');
+      }
+  
+      // Actualiza lista tras eliminación
+      fetchCategorias();
+    } catch (err) {
+      setError('Error al eliminar categoría: ' + err.message);
+    }
+  };
+  
+
   return (
     <div className="container mt-4">
       <h1 className="mb-4">Categorías</h1>
@@ -84,7 +107,7 @@ function Categorias() {
               <Card.Title>{cat.nombre}</Card.Title>
               <Card.Text>{cat.descripcion}</Card.Text>
               <Button variant="warning" className="me-2">Modificar</Button>
-              <Button variant="danger">Eliminar</Button>
+              <Button variant="danger" onClick={() => handleEliminarCategoria(cat.id)}>Eliminar</Button>
             </Card.Body>
           </Card>
         ))}
