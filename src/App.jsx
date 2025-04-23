@@ -4,6 +4,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import RutaProtegida from './components/RutaProtegida';
 import LoginForm from './components/LoginForm';
 import './App.css';
+import Categorias from './components/Categorias'; 
 
 function App() {
   const token = localStorage.getItem('token');
@@ -48,10 +49,10 @@ function App() {
           <Route path="/" element={<h1 className="display-4 text-primary fw-bold">Bienvenido al Restaurante</h1>} />
           <Route path="/categorias" element={
             <RutaProtegida>
-              <h1 className="display-5 text-secondary">Categorías del Menú</h1>
+              <Categorias /> {/* <-- MOSTRAMOS LAS TARJETAS AQUÍ */}
             </RutaProtegida>
           } />
-          <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
+        <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
         </Routes>      
       </div>
     </>
